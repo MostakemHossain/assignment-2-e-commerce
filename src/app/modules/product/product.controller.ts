@@ -33,7 +33,23 @@ const getAllProduct = async (req: Request, res: Response) => {
     });
   }
 };
+const getSingleProduct = async (req: Request, res: Response) => {
+  try {
+    const result = await productService.getSingleProduct(req.params.productId);
+    res.status(200).json({
+      success: true,
+      message: "Products fetched successfully!",
+      data: result,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      message: error.message || "Something went wrong",
+    });
+  }
+};
 export const productController = {
   createAProduct,
   getAllProduct,
+  getSingleProduct,
 };
