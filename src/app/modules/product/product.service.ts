@@ -18,10 +18,15 @@ const deleteProduct = async (id: string) => {
   await Product.findByIdAndDelete(id);
   return null;
 };
+const updateProduct = async (id: string, payload: Partial<TProduct>) => {
+  const result = await Product.findByIdAndUpdate(id, payload, { new: true });
+  return result;
+};
 
 export const productService = {
   createAProduct,
   getAllProduct,
   getSingleProduct,
   deleteProduct,
+  updateProduct,
 };
