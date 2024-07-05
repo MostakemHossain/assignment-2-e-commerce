@@ -36,7 +36,12 @@ const getAllOrder = async () => {
   return result;
 };
 const getOrderViaEmail = async (email: string) => {
-  const result = await Order.findOne({ email });
+  const result = await Order.find({ email });
+
+  if (result.length === 0) {
+    throw new Error("Order not found");
+  }
+
   return result;
 };
 

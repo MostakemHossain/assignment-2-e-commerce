@@ -1,5 +1,5 @@
 import cors from "cors";
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import router from "./app/routes";
 
 // express
@@ -18,4 +18,10 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.status(404).json({
+    success: false,
+    message: "Route not found",
+  });
+});
 export default app;
