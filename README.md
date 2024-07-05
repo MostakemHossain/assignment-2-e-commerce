@@ -41,7 +41,7 @@ This project is an E-commerce API developed using Express and TypeScript, integr
 
 - The base URL for the API is: `http://localhost:9000`
 
-- **Live Link:** [Your Live API URL](http://your-live-url.com)
+- **Live Link:** [Your Live API URL]([http://your-live-url.com](https://e-commerce-project-nu-blush.vercel.app/))
 
 ## API Endpoints
 
