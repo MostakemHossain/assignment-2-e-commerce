@@ -5,8 +5,12 @@ const createAProduct = async (payload: TProduct) => {
   const result = await Product.create(payload);
   return result;
 };
-const getAllProduct = async () => {
-  const result = await Product.find();
+const getAllProduct = async (searchTerm: any) => {
+  let query = {};
+  if (searchTerm) {
+    query = { name: { $regex: searchTerm, $options: "i" } };
+  }
+  const result = await Product.find(query);
   return result;
 };
 
